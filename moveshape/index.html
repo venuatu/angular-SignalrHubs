@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move shape angular</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=false">
+    <script src="hand-1.1.2.js"></script>
+    <script src="jquery-1.10.1.js"></script>
+    <script src="jquery.signalR-1.1.3.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="HubService.js"></script>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        font-family: 'Segoe UI', 'Helvetica Neue', Verdana, sans-serif;
+    }
+    .box {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        background-color: blue;
+    }
+    #status {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: .5em;
+    }
+    </style>
+</head>
+<body ng-app="app" ng-controller="MoveShapeController">
+    <p id="status">{{ signalr.status }} <span ng-show="signalr.connected">using {{ signalr.transport }} with {{ nClients -1 }} other clients</span></p>
+    <move-shape></move-shape>
+</body>
+</html>
